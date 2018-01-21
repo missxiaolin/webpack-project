@@ -21,7 +21,12 @@
 /******/ 		while(resolves.length) {
 /******/ 			resolves.shift()();
 /******/ 		}
-/******/
+/******/ 		if(executeModules) {
+/******/ 			for(i=0; i < executeModules.length; i++) {
+/******/ 				result = __webpack_require__(__webpack_require__.s = executeModules[i]);
+/******/ 			}
+/******/ 		}
+/******/ 		return result;
 /******/ 	};
 /******/
 /******/ 	// The module cache
@@ -29,7 +34,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		2: 0
+/******/ 		4: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -86,7 +91,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({"0":"vendor"}[chunkId]||chunkId) + ".chunk.js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"1":"pageB","2":"vendor","3":"pageA"}[chunkId]||chunkId) + ".chunk.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -140,37 +145,6 @@
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 2:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-// 异步加载
-__webpack_require__.e/* require.ensure */(0).then((function(){
-    var _ = __webpack_require__(0)
-}).bind(null, __webpack_require__)).catch(__webpack_require__.oe)
-
-__webpack_require__.e/* require.ensure */(1).then((function(){
-    var subPageA = __webpack_require__(1)
-}).bind(null, __webpack_require__)).catch(__webpack_require__.oe)
-
-// 加载直接执行
-// import('./subPageB').then(function(subPageB){
-
-// })
-
-// import './subPageA'
-// import './subPageB'
-
-/* harmony default export */ __webpack_exports__["default"] = ('pageA');
-
-/***/ })
-
-/******/ });
+/******/ ([]);

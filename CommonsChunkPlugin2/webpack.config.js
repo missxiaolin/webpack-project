@@ -16,12 +16,12 @@ module.exports = {
 
     plugins: [
         // 提取公用代码
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'common',
-            minChunks: 2,
-            // 添加范围提取公共代码
-            chunks: ['pageA', 'pageB']
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'common',
+        //     minChunks: 2,
+        //     // 添加范围提取公共代码
+        //     chunks: ['pageA', 'pageB']
+        // }),
         // new webpack.optimize.CommonsChunkPlugin({
         //     names: ['vendor', 'manifest'],
         //     minChunks: Infinity
