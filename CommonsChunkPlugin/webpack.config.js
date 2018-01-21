@@ -21,15 +21,19 @@ module.exports = {
             // 添加范围提取公共代码
             chunks: ['pageA', 'pageB']
         }),
-        // webpack
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
+            names: ['vendor', 'manifest'],
             minChunks: Infinity
         }),
+        // webpack
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'vendor',
+        //     minChunks: Infinity
+        // }),
         // 第三方
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest',
-            minChunks: Infinity
-        })
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'manifest',
+        //     minChunks: Infinity
+        // })
     ]
 }
