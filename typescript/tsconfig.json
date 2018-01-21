@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5", // 编译完需要在什么环境运行
+        "allowJs": true,
+        "typeRoots": [
+            "./node_modules/@type",
+            "./typings/modules"
+        ]
+    },
+    "include": [
+        "./src/*"
+    ],
+
+    "exclude": [
+        "./node_modules"
+    ]
+}
