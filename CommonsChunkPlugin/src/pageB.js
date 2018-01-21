@@ -3,4 +3,4 @@ import * as _ from "lodash"
 import './subPageA'
 import './subPageB'
 
-export default 'pageA'
+export default 'pageB'
