@@ -9,6 +9,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
+        publicPath: './dist/', // 发布路径
         filename: '[name].bundle.js',
         chunkFilename: '[name].chunk.js'
     },

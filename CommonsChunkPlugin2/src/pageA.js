@@ -7,7 +7,12 @@ require.ensure(['./subPageA'],function(){
     var subPageA = require('./subPageA')
 })
 
+// 加载直接执行
+// import('./subPageB').then(function(subPageB){
+
+// })
+
 // import './subPageA'
-import './subPageB'
+// import './subPageB'
 
 export default 'pageA'
