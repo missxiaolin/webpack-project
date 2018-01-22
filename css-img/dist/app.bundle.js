@@ -77,7 +77,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var app = document.getElementById('app')
-app.innerHTML = '<div class="' + __WEBPACK_IMPORTED_MODULE_0__css_base_less___default.a.box + '"></div>'
+app.innerHTML = '<div class="' + __WEBPACK_IMPORTED_MODULE_0__css_base_less__["default"].box + '"></div>'
 
 
 
@@ -85,8 +85,7 @@ app.innerHTML = '<div class="' + __WEBPACK_IMPORTED_MODULE_0__css_base_less___de
 /* 1 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-module.exports = {"box":"_1dC2aff2TpUxK-_9N3MLzd"};
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: spawn /Applications/project/webpack/css-img/node_modules/.3.1.4@optipng-bin/vendor/optipng ENOENT\n    at _errnoException (util.js:1021:11)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:192:19)\n    at onErrorNT (internal/child_process.js:374:16)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)\n    at runLoaders (/Applications/project/webpack/css-img/node_modules/.3.10.0@webpack/lib/NormalModule.js:195:19)\n    at /Applications/project/webpack/css-img/node_modules/.2.3.0@loader-runner/lib/LoaderRunner.js:364:11\n    at /Applications/project/webpack/css-img/node_modules/.2.3.0@loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/Applications/project/webpack/css-img/node_modules/.2.3.0@loader-runner/lib/LoaderRunner.js:111:13)\n    at /Applications/project/webpack/css-img/node_modules/.2.0.0@img-loader/index.js:45:31\n    at <anonymous>");
 
 /***/ }),
 /* 2 */

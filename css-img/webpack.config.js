@@ -39,10 +39,12 @@ module.exports = {
                             loader: 'postcss-loader',
                             options: {
                                 ident: 'postcss',
-                                plugins: [
-                                    require('autoprefixer')(), // css代码补全
-                                    require('postcss-cssnext')()
-                                ]
+                                plugins: function(loader){
+                                    return [
+                                        require('autoprefixer')(), // css代码补全
+                                        require('postcss-cssnext')()
+                                    ]
+                                }
                             }
                         },
                         {
@@ -68,9 +70,17 @@ module.exports = {
                             publicPath: '',
                             outputPath: 'dist/',
                             useRelativePath: true,
-                            limit: 10000, // 当图片大于多少k压缩
+                            limit: 10000, // 当图片大于多少k使用路径不然使用base64
                         }
-                    }
+                    },
+                    // {
+                    //     loader: 'img-loader', // 压缩图片
+                    //     options: {
+                    //         pngquant: {
+                    //             quality: 80
+                    //         }
+                    //     }
+                    // }
                 ]
             }
         ]
