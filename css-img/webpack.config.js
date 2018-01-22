@@ -82,6 +82,21 @@ module.exports = {
                     //     }
                     // }
                 ]
+            },
+            // 处理字体
+            {
+                test: /\.(eot|woff2|woff|ttf|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            publicPath: '',
+                            outputPath: 'dist/',
+                            useRelativePath: true,
+                            limit: 5000, // 当图片大于多少k使用路径不然使用base64
+                        }
+                    }
+                ]
             }
         ]
     },
