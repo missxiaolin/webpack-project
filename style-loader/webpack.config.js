@@ -20,13 +20,17 @@ module.exports = {
                     {
                         loader: 'style-loader',
                         options: {
-                            insertInto: '#app',
+                            // insertInto: '#app',
                             singleton: true, // 引入的js打包在一起
                             transform: './css.transform.js' // 在浏览器载入的时候执行（可以判断出ua 也就是浏览器）可以判断当前浏览器对css做一些形变
                         }
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true, // 压缩
+                            modules: true
+                        }
                     }
                     // 提取引用link标签方法(import 2次 会生成2个  造成网络请求多次)
                     // {

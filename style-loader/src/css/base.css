@@ -5,3 +5,9 @@
 body{
     background: yellow;
 }
+.box{
+    width: 200px;
+    height: 200px;
+    border: solid 1px red;
+    font-size: 12px;
+}

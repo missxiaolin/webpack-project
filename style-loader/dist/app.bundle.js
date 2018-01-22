@@ -540,6 +540,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+var app = document.getElementById('app')
+app.innerHTML = '<div class="' + __WEBPACK_IMPORTED_MODULE_0__css_base_css___default.a.box + '"></div>'
+
+
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -552,7 +557,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
 transform = __webpack_require__(1);
-var options = {"insertInto":"#app","singleton":true,"transform":"./css.transform.js","hmr":true}
+var options = {"singleton":true,"transform":"./css.transform.js","hmr":true}
 options.transform = transform
 // add the styles to the DOM
 var update = __webpack_require__(2)(content, options);
@@ -561,8 +566,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/.0.28.9@css-loader/index.js!./base.css", function() {
-			var newContent = require("!!../../node_modules/.0.28.9@css-loader/index.js!./base.css");
+		module.hot.accept("!!../../node_modules/.0.28.9@css-loader/index.js??ref--0-1!./base.css", function() {
+			var newContent = require("!!../../node_modules/.0.28.9@css-loader/index.js??ref--0-1!./base.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -580,10 +585,12 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "*{\n    margin: 0;\n    padding: 0;\n}\nbody{\n    background: yellow;\n}", ""]);
+exports.push([module.i, "*{margin:0;padding:0}body{background:#ff0}._2SaOUZhroVCSeUHstDhYSi{width:200px;height:200px;border:1px solid red;font-size:12px}", ""]);
 
 // exports
-
+exports.locals = {
+	"box": "_2SaOUZhroVCSeUHstDhYSi"
+};
 
 /***/ }),
 /* 6 */
@@ -692,7 +699,7 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
 transform = __webpack_require__(1);
-var options = {"insertInto":"#app","singleton":true,"transform":"./css.transform.js","hmr":true}
+var options = {"singleton":true,"transform":"./css.transform.js","hmr":true}
 options.transform = transform
 // add the styles to the DOM
 var update = __webpack_require__(2)(content, options);
@@ -701,8 +708,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/.0.28.9@css-loader/index.js!./common.css", function() {
-			var newContent = require("!!../../node_modules/.0.28.9@css-loader/index.js!./common.css");
+		module.hot.accept("!!../../node_modules/.0.28.9@css-loader/index.js??ref--0-1!./common.css", function() {
+			var newContent = require("!!../../node_modules/.0.28.9@css-loader/index.js??ref--0-1!./common.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -720,10 +727,12 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "#app{\n    font-size: 20px;\n}", ""]);
+exports.push([module.i, "#_3zIBSmElzCKaz4X3JbduGR{font-size:20px}", ""]);
 
 // exports
-
+exports.locals = {
+	"app": "_3zIBSmElzCKaz4X3JbduGR"
+};
 
 /***/ })
 /******/ ]);
