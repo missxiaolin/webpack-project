@@ -9,3 +9,4 @@
 - provide-plugin(引入第三方 例如jquery)
 - html(处理html->自动生成html)
 - html-load(处理html的图片)
+- html-webpack-inline-chunk-plugin(提前载入webpack加载代码)
