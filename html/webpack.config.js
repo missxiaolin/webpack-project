@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        // publicPath: './dist/', // 发布路径
+        publicPath: './', // 发布路径
         filename: '[name]-bundle-[hash:5].js',
         chunkFilename: '[name].chunk.js'
     },
@@ -68,9 +68,10 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
+                            name: '[name]-[hash:5].[ext]',
                             publicPath: '',
-                            outputPath: 'dist/',
-                            useRelativePath: true,
+                            outputPath: 'assets/img/',
+                            // useRelativePath: true,
                             limit: 10000, // 当图片大于多少k使用路径不然使用base64
                         }
                     },
@@ -98,6 +99,19 @@ module.exports = {
                             outputPath: 'dist/',
                             useRelativePath: true,
                             limit: 5000, // 当图片大于多少k使用路径不然使用base64
+                        }
+                    }
+                ]
+            },
+
+            // 处理图片
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            attrs: ['img:src', 'img:data-src'] // 懒加载情况
                         }
                     }
                 ]
