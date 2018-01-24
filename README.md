@@ -10,3 +10,4 @@
 - html(处理html->自动生成html)
 - html-load(处理html的图片)
 - html-webpack-inline-chunk-plugin(提前载入webpack加载代码)
+- clean-webpack-plugin（可以重新生成dist）
