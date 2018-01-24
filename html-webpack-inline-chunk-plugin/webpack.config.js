@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: './', // 发布路径
-        filename: '[name]-bundle-[hash:5].js',
+        filename: 'js/[name]-bundle-[hash:5].js',
         chunkFilename: '[name].chunk.js'
     },
 
