@@ -11,9 +11,13 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: './', // 发布路径
+        publicPath: '/', // 发布路径
         filename: 'js/[name]-bundle-[hash:5].js',
         chunkFilename: '[name].chunk.js'
+    },
+
+    devServer: {
+        port: 9001
     },
 
     module: {
@@ -71,7 +75,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             name: '[name]-[hash:5].[ext]',
-                            publicPath: '',
+                            // publicPath: '',
                             outputPath: 'assets/img/',
                             // useRelativePath: true,
                             limit: 10000, // 当图片大于多少k使用路径不然使用base64
