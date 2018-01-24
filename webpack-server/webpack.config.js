@@ -17,7 +17,19 @@ module.exports = {
     },
 
     devServer: {
-        port: 9001
+        // inline: false, // 可以在页面看到打包状态 false
+        port: 9001,
+        // 单页面应用路由 使用#请求的是某一个页面 使用historyApiFallback不造成浏览器刷新 直接改变history历史
+        historyApiFallback: {
+            rewrites: [
+                {
+                    from: /^\/([a-zA-Z0-9]+\/?)([a-zA-Z0-9]+)/,
+                    to: function (context) {
+                        return '/' + context.match[1] + context.match[2] + '.html'
+                    }
+                }
+            ]
+        }
     },
 
     module: {
