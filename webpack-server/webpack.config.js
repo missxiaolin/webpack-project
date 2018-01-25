@@ -21,7 +21,7 @@ module.exports = {
         port: 9001,
         // 代理
         proxy: {
-            '/rest':{
+            '/rest': {
                 target: 'http://www.system.com',
                 changeOrigin: true,
                 logLevel: 'debug', // 开启debug模式  可以在控制台看到设置那些代理
@@ -31,6 +31,7 @@ module.exports = {
                 }
             }
         },
+        hot: true,
         // 单页面应用路由 使用#请求的是某一个页面 使用historyApiFallback不造成浏览器刷新 直接改变history历史
         historyApiFallback: {
             rewrites: [
@@ -48,8 +49,8 @@ module.exports = {
         rules: [
             {
                 test: /\.less$/,
-                use: ExtractTextWebpackPlugin.extract({
-                    fallback: {
+                use: [
+                    {
                         loader: 'style-loader',
                         options: {
                             // insertInto: '#app',
@@ -57,32 +58,30 @@ module.exports = {
                             transform: './css.transform.js' // 在浏览器载入的时候执行（可以判断出ua 也就是浏览器）可以判断当前浏览器对css做一些形变
                         }
                     },
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                importLoaders: 2,
-                                minimize: true, // 压缩
-                                modules: true
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                ident: 'postcss',
-                                plugins: function(loader){
-                                    return [
-                                        require('autoprefixer')(), // css代码补全
-                                        require('postcss-cssnext')()
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            loader: 'less-loader'
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                            minimize: true, // 压缩
+                            modules: true
                         }
-                    ]
-                })
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: function (loader) {
+                                return [
+                                    require('autoprefixer')(), // css代码补全
+                                    require('postcss-cssnext')()
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        loader: 'less-loader'
+                    }
+                ],
             },
             {
                 test: /\.(png|jpg|jpeg|gif)$/,
@@ -154,7 +153,7 @@ module.exports = {
 
     plugins: [
         new webpack.ProvidePlugin({
-          $: 'jquery'  
+            $: 'jquery'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest'
@@ -175,6 +174,16 @@ module.exports = {
             filename: 'css/[name]-bundle-[hash:5].css',
             allChunks: false, // 指定一个提取css范围
         }),
+
+        new webpack.optimize.UglifyJsPlugin(),
+
         new CleanWebpackPlugin(['dist']), // 删除dist重新生成
+
+        new webpack.HotModuleReplacementPlugin(),
+
+        new webpack.NamedModulesPlugin(),
+
+        
+
     ]
 }
