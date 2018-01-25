@@ -9,3 +9,8 @@ $.get('/rest/form/search',{},function(data){
     console.log(data)
 })
 
+alert(2)
+
+if(module.hot){
+    module.hot.accept()
+}

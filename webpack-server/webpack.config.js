@@ -32,6 +32,7 @@ module.exports = {
             }
         },
         hot: true,
+        hotOnly: true,
         // 单页面应用路由 使用#请求的是某一个页面 使用historyApiFallback不造成浏览器刷新 直接改变history历史
         historyApiFallback: {
             rewrites: [
