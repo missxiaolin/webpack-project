@@ -21,6 +21,7 @@ module.exports = {
 
     devServer: {
         // inline: false, // 可以在页面看到打包状态 false
+        overlay: true, // 代码检测
         port: 9001,
         // 代理
         proxy: {
@@ -51,6 +52,21 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                include: [[path.resolve(__dirname, 'src')]],
+                use: [
+                    // {
+                    //     loader: 'babel-loader'
+                    // },
+                    {
+                        loader: 'eslint-loader',
+                        options: {
+                            formatter: require('eslint-friendly-formatter')
+                        }
+                    }
+                ],
+            },
             {
                 test: /\.less$/,
                 use: [
@@ -193,7 +209,7 @@ module.exports = {
 
         new webpack.NamedModulesPlugin(),
 
-        
+
 
     ]
 }

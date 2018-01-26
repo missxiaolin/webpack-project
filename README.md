@@ -11,3 +11,8 @@
 - html-load(处理html的图片)
 - html-webpack-inline-chunk-plugin(提前载入webpack加载代码)
 - clean-webpack-plugin（可以重新生成dist）
+
+### eslint
+
+- cnpm install eslint eslint-loader eslint-plugin-html eslint-friendly-formatter --save-dev
+- cnpm install eslint-config-standard eslint-plugin-promise eslint-plugin-node eslint-plugin-import eslint-plugin-standard --save-dev
