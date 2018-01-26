@@ -18,5 +18,5 @@
 - cnpm install eslint-config-standard eslint-plugin-promise eslint-plugin-node eslint-plugin-import eslint-plugin-standard --save-dev
 
 ### 本地环境
-cnpm install webpack-merge --save-dev
+- cnpm install webpack-merge --save-dev
 - cnpm install express opn webpack-dev-middleware webpack-hot-middleware http-proxy-middleware connect-history-api-fallback --save-dev
