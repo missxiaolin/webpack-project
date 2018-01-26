@@ -16,6 +16,9 @@ module.exports = {
         chunkFilename: '[name].chunk.js'
     },
 
+    // 打开Source map 本地调试(js)
+    devtool: 'cheap-module-source-map',
+
     devServer: {
         // inline: false, // 可以在页面看到打包状态 false
         port: 9001,
@@ -55,7 +58,8 @@ module.exports = {
                         loader: 'style-loader',
                         options: {
                             // insertInto: '#app',
-                            singleton: true, // 引入的js打包在一起
+                            // singleton: true, // 引入的js打包在一起 (当singleton设置为true 发现sourceMap就没有用了定位不到css在什么文件)
+                            sourceMap: true,
                             transform: './css.transform.js' // 在浏览器载入的时候执行（可以判断出ua 也就是浏览器）可以判断当前浏览器对css做一些形变
                         }
                     },
@@ -63,6 +67,7 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 2,
+                            sourceMap: true,
                             minimize: true, // 压缩
                             modules: true
                         }
@@ -71,6 +76,7 @@ module.exports = {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
+                            sourceMap: true,
                             plugins: function (loader) {
                                 return [
                                     require('autoprefixer')(), // css代码补全
@@ -80,7 +86,10 @@ module.exports = {
                         }
                     },
                     {
-                        loader: 'less-loader'
+                        loader: 'less-loader',
+                        options: {
+                            sourceMap: true,
+                        }
                     }
                 ],
             },
@@ -176,7 +185,7 @@ module.exports = {
             allChunks: false, // 指定一个提取css范围
         }),
 
-        new webpack.optimize.UglifyJsPlugin(),
+        // new webpack.optimize.UglifyJsPlugin(),
 
         new CleanWebpackPlugin(['dist']), // 删除dist重新生成
 

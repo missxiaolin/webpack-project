@@ -9,8 +9,9 @@ $.get('/rest/form/search',{},function(data){
     console.log(data)
 })
 
-alert(2)
+// alert(2)
 
+// 页面刷新调试
 if(module.hot){
     module.hot.accept()
 }
