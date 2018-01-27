@@ -63,6 +63,7 @@ const generatePage = function ({
             new HtmlWebpackPlugin({
                 chunks,
                 template,
+                title,
                 filename: name + '.html'
             })
         ]
@@ -100,4 +101,21 @@ const pages = [
     })
 ]
 
-module.exports = pages.map(page => merge(baseConfig, page))
+pages.map(page => merge(baseConfig, page))
+
+module.exports = merge([baseConfig].concat(pages))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
