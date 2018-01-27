@@ -112,13 +112,14 @@ const generateConfig = env => {
 
     return {
         entry: {
-            'app': './src/app.js'
+            'app': './src/app.js',
+            'vendor': ['vue']
         },
         output: {
             path: path.resolve(__dirname, '../dist'),
             publicPath: '/', // 发布路径
-            filename: 'js/[name]-bundle-[hash:5].js',
-            chunkFilename: '[name].chunk.js'
+            filename: env === 'production' ? 'js/[name]-[chunkhash].js' : 'js/[name]-[hash:5].js',
+            // chunkFilename: '[name].chunk.js'
         },
 
         // 引入本地的jquery
@@ -184,6 +185,8 @@ const generateConfig = env => {
         },
         plugins: [
             extractLess,
+            new webpack.NamedChunksPlugin(),
+            new webpack.NamedModulesPlugin(),
             new HtmlWebpackPlugin({
                 filename: 'index.html', // 名称
                 template: './index.html',
@@ -193,6 +196,15 @@ const generateConfig = env => {
                     collapseWhitespace: true // 压缩html
                 }
             }),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'vendor',
+                minChunks: Infinity
+            }),
+
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'manifest'
+            }),
+
             new webpack.ProvidePlugin({
                 $: 'jquery'
             })

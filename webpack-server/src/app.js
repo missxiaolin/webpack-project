@@ -1,17 +1,23 @@
-import base from './css/base.less'
-import './css/common.less'
+import vue from 'vue'
+console.log('this is ceshi foo !!!')
+// import base from './css/base.less'
+// import './css/common.less'
 
-var app = document.getElementById('app')
-app.innerHTML = '<div class="' + base.box + '"></div>'
-
-console.log($)
-$.get('/rest/form/search', {}, function (data) {
-    console.log(data)
+import(/* webpackChunkName: 'async' */'./js/a.js').then(function (a){
+ console.log(1)
 })
 
-// alert(2)
+// var app = document.getElementById('app')
+// app.innerHTML = '<div class="' + base.box + '"></div>'
 
-// 页面刷新调试
-if (module.hot) {
-    module.hot.accept()
-}
+// console.log($)
+// $.get('/rest/form/search', {}, function (data) {
+//     console.log(data)
+// })
+
+// // alert(2)
+
+// // 页面刷新调试
+// if (module.hot) {
+//     module.hot.accept()
+// }
