@@ -14,6 +14,10 @@ module.exports = {
 
         new webpack.optimize.UglifyJsPlugin(),
 
+        new webpack.DllReferencePlugin({
+            manifest: require('../src/dll/vue-manifest.json')
+        }),
+
         new CleanWebpackPlugin('../dist') // 删除dist重新生成
     ]
 }
