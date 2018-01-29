@@ -1,7 +1,7 @@
 import vue from 'vue'
 console.log('this is ceshi foo !!!')
 // import base from './css/base.less'
-// import './css/common.less'
+import './css/common.less'
 
 import(/* webpackChunkName: 'async' */'./js/a.js').then(function (a){
  console.log(1)
